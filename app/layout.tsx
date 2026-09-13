@@ -1,5 +1,4 @@
 import "./globals.css";
-import "./experience.css";
 import { Inter } from "next/font/google";
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -36,7 +35,12 @@ export default function RootLayout({
       signUpUrl="/sign-up"
       afterSignOutUrl="/"
     >
-      <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
+      <html
+        className="[@media(prefers-reduced-motion:_reduce)]:[scroll-behavior:auto]"
+        lang="en"
+        data-scroll-behavior="smooth"
+        suppressHydrationWarning
+      >
         <body className={`${inter.className} ${inter.variable}`}>
           <ThemeProvider
             attribute="class"

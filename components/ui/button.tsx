@@ -50,7 +50,11 @@ function Button({
     <Comp
       type={asChild ? undefined : "button"}
       data-slot="button"
-      className={cn(buttonVariants({ variant, size, className }))}
+      className={cn(
+        buttonVariants({ variant, size }),
+        "data-[slot=button]:text-[0.875rem] data-[slot=button]:[box-shadow:none] [@media(width<=560px)]:data-[slot=button]:min-h-[44px] [.zen-header-actions_>_&[data-slot='button']]:min-h-[38px] [@media(width<=560px)]:[.workspace-page_&[data-slot='button']]:min-h-[44px] [.workspace-page_&[data-slot='button']]:min-h-[42px] [@media(width<=560px)]:[.workspace-page_&[data-slot='button']]:text-[12px] [.workspace-page_&[data-slot='button']]:text-[13px] data-[slot=button]:rounded-[0.3125rem] [.workspace-page_&[data-slot='button']]:rounded-[6px]",
+        className,
+      )}
       {...props}
     />
   );

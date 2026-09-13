@@ -182,7 +182,7 @@ const ExperienceForm = ({ entries, onChange }: ExperienceFormProps) => {
               <CardContent>
                 <div className="space-y-4">
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="space-y-2">
+                    <div className="space-y-2 [@media(width<=560px)]:[.workspace-page_form_>_&]:p-[1.0625rem]">
                       <Input
                         {...register("title")}
                         placeholder="Title/Positon"
@@ -194,7 +194,7 @@ const ExperienceForm = ({ entries, onChange }: ExperienceFormProps) => {
                         </p>
                       )}
                     </div>
-                    <div className="space-y-2">
+                    <div className="space-y-2 [@media(width<=560px)]:[.workspace-page_form_>_&]:p-[1.0625rem]">
                       <Input
                         {...register("organization")}
                         placeholder="Organization/Company"
@@ -209,7 +209,7 @@ const ExperienceForm = ({ entries, onChange }: ExperienceFormProps) => {
                   </div>
 
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="space-y-2">
+                    <div className="space-y-2 [@media(width<=560px)]:[.workspace-page_form_>_&]:p-[1.0625rem]">
                       <Input
                         {...register("startDate")}
                         type="text"
@@ -224,7 +224,7 @@ const ExperienceForm = ({ entries, onChange }: ExperienceFormProps) => {
                         </p>
                       )}
                     </div>
-                    <div className="space-y-2">
+                    <div className="space-y-2 [@media(width<=560px)]:[.workspace-page_form_>_&]:p-[1.0625rem]">
                       <Input
                         {...register("endDate")}
                         type="text"
@@ -258,7 +258,7 @@ const ExperienceForm = ({ entries, onChange }: ExperienceFormProps) => {
                     </Label>
                   </div>
 
-                  <div className="space-y-2">
+                  <div className="space-y-2 [@media(width<=560px)]:[.workspace-page_form_>_&]:p-[1.0625rem]">
                     <Textarea
                       {...register("description")}
                       placeholder="Description of your work experience"

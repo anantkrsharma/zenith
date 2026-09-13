@@ -59,11 +59,14 @@ const CoverLetterCard = ({ letter }: { letter: CoverLetter }) => {
   };
 
   return (
-    <Card key={letter.id} className="group relative bg-card saved-letter-card">
+    <Card
+      key={letter.id}
+      className="group relative bg-card saved-letter-card border-t [border-top-style:solid] border-t-[var(--border)] before:[content:''] before:hidden before:w-10 before:h-[3px] before:bg-[#70b7c255] before:bg-none before:absolute before:left-[1.4375rem] before:top-[-2px]"
+    >
       <CardHeader>
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div className="min-w-0 flex-1">
-            <CardTitle className="text-xl gradient-title">
+            <CardTitle className="text-xl gradient-title text-foreground font-normal tracking-[-0.045em]">
               {letter.jobTitle}{" "}
               <span className="font-normal text-muted-foreground mx-0.5">
                 at

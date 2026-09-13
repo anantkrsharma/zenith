@@ -21,54 +21,36 @@ export default function HeaderNavigation() {
     ({ href }) => pathname === href || pathname.startsWith(`${href}/`),
   );
   return (
-    <header className="site-header" data-landing={isLanding}>
+    <header
+      className="site-header fixed top-0 right-0 bottom-auto left-0 z-50 bg-[#080e12dc] bg-none border-b [border-bottom-style:solid] border-b-[#45616b35] [backdrop-filter:blur(20px)] [@media(width<=380px)]:[&_nav_>_a]:text-[18px] [@media(width<=380px)]:[&_nav_>_a]:gap-[6px]"
+      data-landing={isLanding}
+    >
       <nav
-        className="site-container flex h-[76px] items-center justify-between gap-4"
+        className="site-container flex items-center justify-between gap-4 [@media(width<=560px)]:w-[calc(100%_-_2.5rem)] [@media(560px<width<=1150px)]:w-[calc(100%_-_4rem)] w-[min(82.5rem,_calc(100%_-_7rem))] [@media(width<=560px)]:h-[70px] h-[76px] [@media(width<=560px)]:[.site-header[data-landing='true']_&]:w-[calc(100%_-_40px)] [@media(560px<width<=1100px)]:[.site-header[data-landing='true']_&]:w-[calc(100%_-_64px)] [.site-header[data-landing='true']_&]:w-[min(1220px,_calc(100%_-_96px))] [@media(width<=560px)]:[.site-header[data-landing='true']_&]:h-[64px] [.site-header[data-landing='true']_&]:h-[68px] mx-auto [@media(width<=380px)]:gap-[6px]"
         aria-label="Main navigation"
       >
         <Brand />
         {isLanding && (
-          <div className="hidden md:flex items-center gap-8 text-xs text-muted-foreground">
-            <Link href="/#workspace">The workspace</Link>
-            <Link href="/#how-it-works">How it works</Link>
-            <Link href="/#faq">FAQ</Link>
+          <div className="hidden md:flex items-center gap-8 text-muted-foreground text-[13px] leading-[calc(1/0.75)]">
+            <Link className="hover:text-primary" href="/#workspace">
+              The workspace
+            </Link>
+            <Link className="hover:text-primary" href="/#how-it-works">
+              How it works
+            </Link>
+            <Link className="hover:text-primary" href="/#faq">
+              FAQ
+            </Link>
           </div>
         )}
-        <div className="zen-header-actions flex items-center gap-3">
-          {isLanding && (
-            <div className="md:hidden">
-              <DropdownMenu modal={false}>
-                <DropdownMenuTrigger asChild>
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    aria-label="Explore Zenith navigation"
-                  >
-                    <Menu size={19} />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="w-60 p-2">
-                  {[
-                    ["/#workspace", "The workspace"],
-                    ["/#industry", "Industry insights"],
-                    ["/#practice", "Interview preparation"],
-                    ["/#documents", "Resume & cover letters"],
-                    ["/#how-it-works", "How it works"],
-                    ["/#faq", "Common questions"],
-                  ].map(([href, label]) => (
-                    <DropdownMenuItem key={href} asChild>
-                      <Link href={href} className="py-3">
-                        {label}
-                      </Link>
-                    </DropdownMenuItem>
-                  ))}
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </div>
-          )}
+        <div className="zen-header-actions flex items-center gap-3 [@media(width<=560px)]:[&_>_button]:px-[9px] [@media(width<=380px)]:gap-[2px] [@media(380px<width<=560px)]:gap-[4px]">
           <Show when="signed-in">
             {!hasWorkspaceNavigation && (
-              <Button asChild variant="ghost" className="hidden lg:inline-flex">
+              <Button
+                asChild
+                variant="ghost"
+                className="hidden lg:inline-flex text-[13px] data-[slot=button]:text-[13px] [@media(width<=560px)]:data-[slot=button]:px-2.5 leading-[calc(1/0.75)]"
+              >
                 <Link href="/dashboard">Workspace</Link>
               </Button>
             )}
@@ -77,6 +59,7 @@ export default function HeaderNavigation() {
                 <DropdownMenu modal={false}>
                   <DropdownMenuTrigger asChild>
                     <Button
+                      className="text-[13px] data-[slot=button]:text-[13px] [@media(width<=560px)]:data-[slot=button]:px-2.5 leading-[calc(1/0.75)]"
                       variant="outline"
                       size="sm"
                       aria-label="Open career tools"
@@ -102,13 +85,25 @@ export default function HeaderNavigation() {
           </Show>
           <Show when="signed-out">
             <SignInButton>
-              <Button variant="ghost" size="sm">
+              <Button
+                className="text-[13px] data-[slot=button]:text-[13px] [@media(width<=560px)]:data-[slot=button]:px-2.5 leading-[calc(1/0.75)]"
+                variant="ghost"
+                size="sm"
+              >
                 Sign in
               </Button>
             </SignInButton>
-            <Button asChild size="sm" className="zen-header-cta">
+            <Button
+              asChild
+              size="sm"
+              className="zen-header-cta text-[13px] data-[slot=button]:text-[13px] data-[slot=button]:bg-transparent data-[slot=button]:[background-image:linear-gradient(135deg,_#b1d6dd,_#70b7c2)] data-[slot=button]:text-[#12313b] data-[slot=button]:h-[37px] [@media(width<=560px)]:data-[slot=button]:min-h-[38px] [@media(width<=560px)]:data-[slot=button]:px-[11px] data-[slot=button]:px-[17px] data-[slot=button]:rounded-[5px] [@media(width<=560px)]:data-[slot=button]:gap-[6px] data-[slot=button]:gap-[13px] leading-[calc(1/0.75)]"
+            >
               <Link href="/sign-up">
-                Get started <ArrowUpRight size={14} />
+                Get started{" "}
+                <ArrowUpRight
+                  className="[@media(width<=380px)]:hidden"
+                  size={14}
+                />
               </Link>
             </Button>
           </Show>

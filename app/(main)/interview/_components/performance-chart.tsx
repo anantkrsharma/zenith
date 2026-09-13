@@ -56,7 +56,11 @@ const PerformanceChart = ({ assessments }: { assessments: Assessment[] }) => {
           </div>
         ) : (
           <div className={`${heightClass} w-full`}>
-            <ResponsiveContainer width="100%" height="100%">
+            <ResponsiveContainer
+              className="[&_.recharts-cartesian-grid_line]:[stroke:#1d2b30] [&_.recharts-text]:[fill:#b4c2c8] [&_.recharts-text]:text-[0.75rem]"
+              width="100%"
+              height="100%"
+            >
               <LineChart
                 data={chartData}
                 margin={{

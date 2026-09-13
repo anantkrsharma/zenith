@@ -8,6 +8,7 @@ function Card({ className, ...props }: React.ComponentProps<"div">) {
       data-slot="card"
       className={cn(
         "bg-card text-card-foreground flex flex-col gap-5 rounded-md border py-5",
+        "[.workspace-page_&[data-slot='card']]:[box-shadow:inset_0_1px_0_#b8dce70a,_0_12px_30px_#0002] [.workspace-page_&[data-slot='card']]:bg-transparent [.workspace-page_&[data-slot='card']]:[background-image:linear-gradient(145deg,_#13242b,_#0e191f)] [.workspace-page_&[data-slot='card']]:border-[#36515e] [.workspace-page_&[data-slot='card']]:rounded-[10px]",
         className,
       )}
       {...props}
@@ -29,7 +30,11 @@ function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="card-title"
-      className={cn("leading-none font-semibold", className)}
+      className={cn(
+        "leading-none font-semibold",
+        "[.workspace-page_&[data-slot='card-title']]:tracking-[-0.025em] [.workspace-page_&[data-slot='card-title']]:text-[20px] [.workspace-page_&[data-slot='card-title']]:font-[450]",
+        className,
+      )}
       {...props}
     />
   );

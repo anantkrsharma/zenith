@@ -27,6 +27,7 @@ function TabsList({
       data-slot="tabs-list"
       className={cn(
         "bg-muted text-muted-foreground inline-flex h-9 w-fit items-center justify-center rounded-lg p-1",
+        "[.workspace-page_&[data-slot='tabs-list']]:h-auto [.workspace-page_&[data-slot='tabs-list']]:bg-[#10212a] [.workspace-page_&[data-slot='tabs-list']]:bg-none [.workspace-page_&[data-slot='tabs-list']]:border-t [.workspace-page_&[data-slot='tabs-list']]:[border-top-style:solid] [.workspace-page_&[data-slot='tabs-list']]:border-r [.workspace-page_&[data-slot='tabs-list']]:[border-right-style:solid] [.workspace-page_&[data-slot='tabs-list']]:border-b [.workspace-page_&[data-slot='tabs-list']]:[border-bottom-style:solid] [.workspace-page_&[data-slot='tabs-list']]:border-l [.workspace-page_&[data-slot='tabs-list']]:[border-left-style:solid] [.workspace-page_&[data-slot='tabs-list']]:p-[5px] [.workspace-page_&[data-slot='tabs-list']]:border-[#304a59] [.workspace-page_&[data-slot='tabs-list']]:rounded-[7px]",
         className,
       )}
       {...props}
@@ -43,6 +44,7 @@ function TabsTrigger({
       data-slot="tabs-trigger"
       className={cn(
         "data-[state=active]:bg-background data-[state=active]:text-foreground focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:outline-ring inline-flex flex-1 items-center justify-center gap-1.5 rounded-md px-2 py-1 text-sm font-medium whitespace-nowrap transition-[color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:shadow-sm [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "[@media(width<=560px)]:[.workspace-page_&[data-slot='tabs-trigger']]:text-[12px] [.workspace-page_&[data-slot='tabs-trigger']]:text-[13px] [.workspace-page_&[data-slot='tabs-trigger']]:min-h-[36px]",
         className,
       )}
       {...props}

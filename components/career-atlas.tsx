@@ -85,12 +85,12 @@ export function CareerAtlas() {
 
   return (
     <div
-      className="zen-atlas"
+      className="zen-atlas min-w-0 relative [@media(width<=850px)]:self-center self-stretch [@media(width>850px)]:grid [@media(width>850px)]:grid-rows-[subgrid] [@media(width>850px)]:[grid-column:2] [@media(width>850px)]:[grid-row:1_/_span_2] [@media(width<=560px)]:mt-[45px] [@media(560px<width<=850px)]:mt-[56px] [@media(width<=850px)]:w-full [@media(width<=850px)]:max-w-[620px] [@media(width<=850px)]:justify-self-center"
       ref={ref}
       data-stage={stage}
       data-static={reducedMotion}
     >
-      <div className="zen-terrain">
+      <div className="zen-terrain relative [@media(width<=560px)]:w-[118%] [@media(560px<width<=850px)]:w-[105%] w-[125%] [@media(width<=560px)]:ml-[-9%] [@media(560px<width<=850px)]:ml-[-2.5%] ml-[-10%] [aspect-ratio:3_/_2] [@media(width>850px)]:self-center [@media(width<=850px)]:mt-[30px] [@media(width<=850px)]:mr-0 [@media(width<=850px)]:mb-0">
         <Image
           src="/art/career-landscape.png"
           width={1536}
@@ -99,10 +99,10 @@ export function CareerAtlas() {
           quality={100}
           preload
           alt="A luminous career path climbs a teal landscape from understanding your industry, through interview preparation, to your next opportunity."
-          className="zen-terrain-image"
+          className="zen-terrain-image block w-full h-auto mix-blend-screen [mask-image:linear-gradient(to_right,_transparent,_#000_5%,_#000_95%,_transparent),_linear-gradient(to_bottom,_transparent,_#000_12%,_#000_88%,_transparent)] [mask-composite:intersect] select-none pointer-events-none"
         />
         <svg
-          className="zen-terrain-path"
+          className="zen-terrain-path absolute top-0 right-0 bottom-0 left-0 w-full h-full pointer-events-none overflow-visible"
           viewBox="0 0 1536 1024"
           aria-hidden="true"
         >
@@ -139,7 +139,7 @@ export function CareerAtlas() {
               rx="300"
               ry="230"
               fill="url(#zen-milestone-light)"
-              className="zen-milestone-light"
+              className="zen-milestone-light opacity-0 transition-opacity [transition-duration:0.8s] [transition-timing-function:ease] delay-0 mix-blend-screen data-[active=true]:opacity-100 [@media(prefers-reduced-motion:_reduce)]:transition-[none] [@media(prefers-reduced-motion:_reduce)]:[transition-duration:0s] [@media(prefers-reduced-motion:_reduce)]:[transition-timing-function:ease] [@media(prefers-reduced-motion:_reduce)]:delay-0 [@media(prefers-reduced-motion:_reduce)]:[transform:none]"
               data-active={reducedMotion || stage === index}
             />
           ))}
@@ -179,7 +179,7 @@ export function CareerAtlas() {
         {stages.map((item, index) => (
           <div
             key={item.name}
-            className="zen-terrain-beacon"
+            className="zen-terrain-beacon absolute grid place-items-center w-[44px] h-[44px] [transform:translate(-50%,_-50%)] pointer-events-none opacity-85 transition-opacity [transition-duration:0.6s] [transition-timing-function:ease] delay-0 data-[active=true]:opacity-100 [@media(prefers-reduced-motion:_reduce)]:transition-[none] [@media(prefers-reduced-motion:_reduce)]:[transition-duration:0s] [@media(prefers-reduced-motion:_reduce)]:[transition-timing-function:ease] [@media(prefers-reduced-motion:_reduce)]:delay-0 [@media(prefers-reduced-motion:_reduce)]:[transform:none] rounded-[50%]"
             data-active={reducedMotion || stage === index}
             data-milestone={index}
             style={{
@@ -187,33 +187,40 @@ export function CareerAtlas() {
               top: (item.y / 1024) * 100 + "%",
             }}
           >
-            <span className="zen-beacon-ring" />
-            <span className="zen-beacon-label">
-              <small>0{index + 1}</small>
+            <span className="zen-beacon-ring absolute top-[9px] right-[9px] bottom-[9px] left-[9px] [border-top-style:solid] [border-right-style:solid] [border-bottom-style:solid] [border-left-style:solid] transition-[box-shadow,_transform,_border-color] [transition-duration:0.6s] [transition-timing-function:ease,_ease,_ease] [transition-delay:0s,_0s,_0s] [.zen-terrain-beacon[data-active='true']_&]:[box-shadow:0_0_0_7px_#70b7c21a,_0_0_30px_#89d4e183] [.zen-terrain-beacon[data-active='true']_&]:[transform:scale(1.15)] border border-[#92d3dd7d] [.zen-terrain-beacon[data-active='true']_&]:border-[#c1ecf4] rounded-[50%]" />
+            <span className="zen-beacon-label absolute [@media(width<=560px)]:bottom-[38px] bottom-[48px] [@media(width<=560px)]:left-[15px] left-[24px] whitespace-nowrap flex items-center text-[#a6b7be] [@media(width<=560px)]:text-[9px] text-[11px] bg-[#0a161a] bg-none [border-top-style:solid] [border-right-style:solid] [border-bottom-style:solid] [border-left-style:solid] transition-[color,_border-color] [transition-duration:0.6s] [transition-timing-function:ease,_ease] [transition-delay:0s,_0s] after:absolute after:[content:''] after:h-[24px] after:w-px after:bg-transparent after:[background-image:linear-gradient(#6296a3,_transparent)] after:top-full after:left-0 after:[transform:rotate(28deg)] after:[transform-origin:top] [.zen-terrain-beacon[data-milestone='2']_&]:left-auto [.zen-terrain-beacon[data-milestone='2']_&]:right-0 [.zen-terrain-beacon[data-milestone='2']_&::after]:left-auto [.zen-terrain-beacon[data-milestone='2']_&::after]:right-[20px] [.zen-terrain-beacon[data-milestone='2']_&::after]:[transform:rotate(-15deg)] [.zen-terrain-beacon[data-active='true']_&]:text-[#e3f2f5] [@media(width<=560px)]:py-[6px] py-[8px] [@media(width<=560px)]:px-[8px] px-[11px] border border-[#517b8340] [.zen-terrain-beacon[data-active='true']_&]:border-[#77b5c08c] rounded-[4px] [@media(width<=560px)]:gap-[5px] gap-[9px]">
+              <small className="not-italic font-normal text-[9px] leading-[normal] font-sans text-[#7298a0]">
+                0{index + 1}
+              </small>
               {item.location}
             </span>
           </div>
         ))}
       </div>
-      <div className="zen-atlas-console">
-        <div className="zen-atlas-stage-row">
-          <div className="zen-atlas-stages" aria-label="Your career journey">
+      <div className="zen-atlas-console relative z-2 [@media(width<=560px)]:mt-0 [@media(560px<width<=850px)]:mt-[-2%] mt-[-5%] mr-0 mb-0 [@media(width<=560px)]:ml-[4%] [@media(560px<width<=850px)]:ml-[10%] [@media(850px<width<=1100px)]:ml-[6%] ml-[14%] pr-0 [@media(width<=560px)]:pl-[15px] pl-[20px] border-l [border-left-style:solid] border-l-[#344c52] py-0">
+        <div className="zen-atlas-stage-row flex justify-between items-center [@media(width<=1100px)]:gap-[5px] gap-[12px]">
+          <div
+            className="zen-atlas-stages flex [@media(width<=380px)]:gap-[12px] [@media(380px<width<=560px)]:gap-[18px] [@media(560px<width<=1100px)]:gap-[17px] gap-[22px]"
+            aria-label="Your career journey"
+          >
             {stages.map((item, index) => (
               <span
                 key={item.name}
-                className="zen-atlas-stage"
+                className="zen-atlas-stage relative flex items-center min-h-[44px] text-[#779098] [@media(width<=560px)]:text-[10px] text-[12px] transition-[color] [transition-duration:0.5s] [transition-timing-function:ease] delay-0 data-[active=true]:text-[#c4e5ea] [@media(width<=560px)]:gap-[5px] gap-[7px]"
                 data-active={reducedMotion || stage === index}
               >
-                <span>0{index + 1}</span>
+                <span className="first:text-[#57737a] first:not-italic first:font-normal [@media(width<=560px)]:first:text-[8px] first:text-[10px] first:leading-[normal] first:font-sans">
+                  0{index + 1}
+                </span>
                 {item.name}
-                <span className="zen-stage-indicator" />
+                <span className="zen-stage-indicator first:text-[#57737a] first:not-italic first:font-normal [@media(width<=560px)]:first:text-[8px] first:text-[10px] first:leading-[normal] first:font-sans absolute bottom-[2px] left-0 right-0 h-px bg-[#86bbc7] bg-none [transform:scaleX(0)] [transform-origin:left] transition-[transform] [transition-duration:0.5s] [transition-timing-function:ease] delay-0 [[data-active='true']_>_&]:[transform:scaleX(1)]" />
               </span>
             ))}
           </div>
           {!reducedMotion && (
             <button
               type="button"
-              className="zen-motion-control"
+              className="zen-motion-control grow-0 shrink-0 basis-[32px] [display:inline-grid] place-items-center w-[32px] h-[36px] text-[#8baab4] transition-[color,_background] [transition-duration:0.2s,_0.2s] [transition-timing-function:ease,_ease] [transition-delay:0s,_0s] [@media(width<=1100px)]:mr-0 mr-[7%] hover:text-[#d0edf1] hover:bg-[#73a7b211] hover:bg-none focus-visible:[outline:1px_solid_#9acbd4] focus-visible:[outline-offset:3px] rounded-[4px]"
               onClick={() => setPaused(!paused)}
               aria-label={
                 paused
@@ -225,16 +232,18 @@ export function CareerAtlas() {
             </button>
           )}
         </div>
-        <div className="zen-atlas-description">
+        <div className="zen-atlas-description [@media(width<=850px)]:min-h-[80px] min-h-[90px] pt-[15px] grid">
           {stages.map((item, index) => (
             <div
               key={item.name}
-              className="zen-atlas-caption"
+              className="zen-atlas-caption [grid-row-start:1] [grid-column-start:1] [grid-row-end:auto] [grid-column-end:auto] opacity-0 invisible transition-[opacity,_visibility] [transition-duration:0.35s,_0s] [transition-timing-function:ease,_ease] [transition-delay:0s,_0.35s] data-[active=true]:opacity-100 data-[active=true]:visible data-[active=true]:delay-0 [@media(prefers-reduced-motion:_reduce)]:transition-[none] [@media(prefers-reduced-motion:_reduce)]:[transition-duration:0s] [@media(prefers-reduced-motion:_reduce)]:[transition-timing-function:ease] [@media(prefers-reduced-motion:_reduce)]:delay-0 [@media(prefers-reduced-motion:_reduce)]:[transform:none]"
               data-active={stage === index}
               aria-hidden={stage !== index}
             >
-              <strong>{item.title}</strong>
-              <p>{item.text}</p>
+              <strong className="text-[14px] font-[450]">{item.title}</strong>
+              <p className="max-w-[390px] mt-[5px] text-[#8fa4ac] text-[12px] leading-[1.7]">
+                {item.text}
+              </p>
             </div>
           ))}
         </div>

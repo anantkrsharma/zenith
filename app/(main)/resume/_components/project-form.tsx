@@ -219,7 +219,7 @@ const ProjectForm = ({ entries, onChange }: ProjectFormProps) => {
               <CardContent>
                 <div className="space-y-4">
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="space-y-2">
+                    <div className="space-y-2 [@media(width<=560px)]:[.workspace-page_form_>_&]:p-[1.0625rem]">
                       <Input
                         {...register("title")}
                         placeholder="Title"
@@ -231,7 +231,7 @@ const ProjectForm = ({ entries, onChange }: ProjectFormProps) => {
                         </p>
                       )}
                     </div>
-                    <div className="space-y-2">
+                    <div className="space-y-2 [@media(width<=560px)]:[.workspace-page_form_>_&]:p-[1.0625rem]">
                       <Input
                         {...register("skills")}
                         placeholder="Skills (comma separated)"
@@ -243,7 +243,7 @@ const ProjectForm = ({ entries, onChange }: ProjectFormProps) => {
                         </p>
                       )}
                     </div>
-                    <div className="space-y-2">
+                    <div className="space-y-2 [@media(width<=560px)]:[.workspace-page_form_>_&]:p-[1.0625rem]">
                       <Input
                         {...register("github")}
                         placeholder="GitHub"
@@ -255,7 +255,7 @@ const ProjectForm = ({ entries, onChange }: ProjectFormProps) => {
                         </p>
                       )}
                     </div>
-                    <div className="space-y-2">
+                    <div className="space-y-2 [@media(width<=560px)]:[.workspace-page_form_>_&]:p-[1.0625rem]">
                       <Input
                         {...register("liveLink")}
                         placeholder="Link"
@@ -270,7 +270,7 @@ const ProjectForm = ({ entries, onChange }: ProjectFormProps) => {
                   </div>
 
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="space-y-2">
+                    <div className="space-y-2 [@media(width<=560px)]:[.workspace-page_form_>_&]:p-[1.0625rem]">
                       <Input
                         {...register("startDate")}
                         type="text"
@@ -285,7 +285,7 @@ const ProjectForm = ({ entries, onChange }: ProjectFormProps) => {
                         </p>
                       )}
                     </div>
-                    <div className="space-y-2">
+                    <div className="space-y-2 [@media(width<=560px)]:[.workspace-page_form_>_&]:p-[1.0625rem]">
                       <Input
                         {...register("endDate")}
                         type="text"
@@ -317,7 +317,7 @@ const ProjectForm = ({ entries, onChange }: ProjectFormProps) => {
                     <Label htmlFor="current">Current</Label>
                   </div>
 
-                  <div className="space-y-2">
+                  <div className="space-y-2 [@media(width<=560px)]:[.workspace-page_form_>_&]:p-[1.0625rem]">
                     <Textarea
                       {...register("description")}
                       placeholder="Description of your project"

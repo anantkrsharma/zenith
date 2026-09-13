@@ -97,71 +97,106 @@ export const OnboardingForm = ({ industries }: OnboardingFormProps) => {
   };
 
   return (
-    <div className="identity-onboarding">
-      <aside className="identity-intro">
-        <p className="eyebrow">01 / YOUR STARTING POINT</p>
-        <h1>
+    <div className="identity-onboarding grid [@media(width<=750px)]:grid-cols-1 grid-cols-[1fr_1fr] w-[min(68.75rem,_100%)] [align-items:start] [@media(width<=750px)]:max-w-140 m-auto [@media(width<=750px)]:gap-[2.1875rem] [@media(750px<width<=1150px)]:gap-[2.8125rem] gap-22.5">
+      <aside className="identity-intro [@media(width<=750px)]:pt-0 pt-5.5">
+        <p className="eyebrow flex items-center text-primary [@media(width<=560px)]:text-[0.6875rem] text-[0.75rem] leading-[1.6] tracking-[0.12em] font-medium [.landing-stories_&]:mb-[1.5625rem] [.landing-stories_&]:text-[0.6875rem] [.story-documents_&]:text-[#8eafb8] [.workspace-sidebar_>_&]:text-[0.6875rem] [.workspace-sidebar_>_&]:text-[#91a5ad] [.workspace-sidebar_>_&]:pl-3 [@media(width<=850px)]:[.workspace-sidebar_>_&]:hidden [&:not(.eyebrow)]:text-[1rem] [&:not(.eyebrow)]:leading-[1.9] [&:not(.eyebrow)]:text-[#b4c2c8] [@media(width<=750px)]:[&:not(.eyebrow)]:max-w-[none] [&:not(.eyebrow)]:max-w-[23.4375rem] gap-2.5">
+          01 / YOUR STARTING POINT
+        </p>
+        <h1 className="[@media(width<=750px)]:text-[2.625rem] [@media(750px<width<=1150px)]:text-[2.875rem] text-[3.3125rem] font-normal leading-[1.1] tracking-[-0.06em] my-[1.5625rem]">
           Every direction
           <br />
-          begins with <span>you.</span>
+          begins with <span className="text-primary">you.</span>
         </h1>
-        <p>
+        <p className="text-[1rem] leading-[1.9] text-[#b4c2c8] [@media(width<=750px)]:max-w-[none] max-w-[23.4375rem]">
           A few details connect your experience to useful guidance. Let’s get to
           know your professional world.
         </p>
-        <div className="identity-map">
-          <div className="identity-map-title">YOUR PROFESSIONAL PROFILE</div>
-          <div className="identity-line" data-filled={!!identity.industry}>
-            <span>01</span>
-            <div>
-              <small>YOUR LANDSCAPE</small>
-              <strong>{selectedIndustry?.name || "Your industry"}</strong>
-            </div>
+        <div className="identity-map [@media(width<=750px)]:mt-[1.5625rem] mt-10 bg-[#101c21] bg-none [border-top-style:solid] [border-right-style:solid] [border-bottom-style:solid] [border-left-style:solid] p-[1.5625rem] border border-[#35474f] rounded-[0.3125rem]">
+          <div className="identity-map-title flex items-center text-[0.6875rem] text-[#b4c2c8] tracking-[0.1em] mb-[0.9375rem] gap-[0.5625rem]">
+            YOUR PROFESSIONAL PROFILE
           </div>
-          <div className="identity-line" data-filled={!!identity.subIndustry}>
-            <span>02</span>
+          <div
+            className="identity-line flex items-center border-b [border-bottom-style:solid] [@media(width<=750px)]:py-[0.9375rem] py-5 border-[#365865] gap-[1.0625rem]"
+            data-filled={!!identity.industry}
+          >
+            <span className="text-[#91a5ad] text-[0.75rem] [border-top-style:solid] [border-right-style:solid] [border-bottom-style:solid] [border-left-style:solid] w-7 h-7 grid place-items-center [.identity-line[data-filled='true']_>_&]:text-[#ceebee] [.identity-line[data-filled='true']_>_&]:bg-[#28505c] [.identity-line[data-filled='true']_>_&]:bg-none border border-[#35474f] [.identity-line[data-filled='true']_>_&]:border-[#76a6b4] rounded-[3px]">
+              01
+            </span>
             <div>
-              <small>YOUR SPECIALIZATION</small>
-              <strong>{identity.subIndustry || "Your area of focus"}</strong>
+              <small className="block text-[0.6875rem] tracking-[0.1em] text-[#91a5ad] mb-2">
+                YOUR LANDSCAPE
+              </small>
+              <strong className="text-[0.9375rem] font-normal">
+                {selectedIndustry?.name || "Your industry"}
+              </strong>
             </div>
           </div>
           <div
-            className="identity-line"
+            className="identity-line flex items-center border-b [border-bottom-style:solid] [@media(width<=750px)]:py-[0.9375rem] py-5 border-[#365865] gap-[1.0625rem]"
+            data-filled={!!identity.subIndustry}
+          >
+            <span className="text-[#91a5ad] text-[0.75rem] [border-top-style:solid] [border-right-style:solid] [border-bottom-style:solid] [border-left-style:solid] w-7 h-7 grid place-items-center [.identity-line[data-filled='true']_>_&]:text-[#ceebee] [.identity-line[data-filled='true']_>_&]:bg-[#28505c] [.identity-line[data-filled='true']_>_&]:bg-none border border-[#35474f] [.identity-line[data-filled='true']_>_&]:border-[#76a6b4] rounded-[3px]">
+              02
+            </span>
+            <div>
+              <small className="block text-[0.6875rem] tracking-[0.1em] text-[#91a5ad] mb-2">
+                YOUR SPECIALIZATION
+              </small>
+              <strong className="text-[0.9375rem] font-normal">
+                {identity.subIndustry || "Your area of focus"}
+              </strong>
+            </div>
+          </div>
+          <div
+            className="identity-line flex items-center border-b [border-bottom-style:solid] [@media(width<=750px)]:py-[0.9375rem] py-5 border-[#365865] gap-[1.0625rem]"
             data-filled={
               identity.experience !== undefined && identity.experience !== ""
             }
           >
-            <span>03</span>
+            <span className="text-[#91a5ad] text-[0.75rem] [border-top-style:solid] [border-right-style:solid] [border-bottom-style:solid] [border-left-style:solid] w-7 h-7 grid place-items-center [.identity-line[data-filled='true']_>_&]:text-[#ceebee] [.identity-line[data-filled='true']_>_&]:bg-[#28505c] [.identity-line[data-filled='true']_>_&]:bg-none border border-[#35474f] [.identity-line[data-filled='true']_>_&]:border-[#76a6b4] rounded-[3px]">
+              03
+            </span>
             <div>
-              <small>YOUR EXPERIENCE</small>
-              <strong>
+              <small className="block text-[0.6875rem] tracking-[0.1em] text-[#91a5ad] mb-2">
+                YOUR EXPERIENCE
+              </small>
+              <strong className="text-[0.9375rem] font-normal">
                 {identity.experience !== undefined && identity.experience !== ""
                   ? `${identity.experience} years of experience`
                   : "Your journey so far"}
               </strong>
             </div>
           </div>
-          <div className="identity-skills">
-            <small>YOUR SKILLS</small>
-            <div>
+          <div className="identity-skills pt-5.5">
+            <small className="block text-[0.6875rem] tracking-[0.1em] text-[#91a5ad] mb-2">
+              YOUR SKILLS
+            </small>
+            <div className="flex flex-wrap gap-[0.4375rem]">
               {identitySkills.length ? (
                 identitySkills.map((skill, index) => (
-                  <span key={index}>{skill}</span>
+                  <span
+                    className="text-[0.75rem] [border-top-style:solid] [border-right-style:solid] [border-bottom-style:solid] [border-left-style:solid] text-[#70b7c2] bg-[#70b7c209] bg-none wrap-anywhere py-[0.4375rem] px-[0.5625rem] border border-[#6b838d] rounded-[3px]"
+                    key={index}
+                  >
+                    {skill}
+                  </span>
                 ))
               ) : (
-                <p>The skills you add will connect here.</p>
+                <p className="text-[0.75rem] text-[#91a5ad]">
+                  The skills you add will connect here.
+                </p>
               )}
             </div>
           </div>
         </div>
-        <p className="identity-note">
+        <p className="identity-note text-[0.75rem]! leading-[1.9] text-[#b4c2c8] [@media(width<=750px)]:max-w-[none] max-w-[23.4375rem] mt-[1.4375rem] [@media(width<=750px)]:hidden">
           Your profile shapes your insights, practice questions, and cover
           letters.
         </p>
       </aside>
-      <Card className="identity-form">
+      <Card className="identity-form pt-2.5 bg-transparent [background-image:linear-gradient(135deg,_#192f3a,_#101f28)] [box-shadow:0_24px_60px_#0003] border-[#446370] rounded-[10px]">
         <CardHeader>
-          <CardTitle className="gradient-title text-2xl">
+          <CardTitle className="gradient-title text-2xl text-foreground font-normal tracking-[-0.045em]">
             Let’s connect the pieces.
           </CardTitle>
           <CardDescription>
@@ -177,8 +212,13 @@ export const OnboardingForm = ({ industries }: OnboardingFormProps) => {
             onSubmit={handleSubmit(onSubmit)}
           >
             {/* Industry */}
-            <div className="space-y-2">
-              <Label htmlFor="industry">* Industry</Label>
+            <div className="space-y-2 [@media(width<=560px)]:[.workspace-page_form_>_&]:p-[1.0625rem]">
+              <Label
+                className="data-[slot=label]:text-[14px] data-[slot=label]:text-[#b7cdd6]"
+                htmlFor="industry"
+              >
+                * Industry
+              </Label>
               <Controller
                 control={control}
                 name="industry"
@@ -222,8 +262,13 @@ export const OnboardingForm = ({ industries }: OnboardingFormProps) => {
 
             {/* Sub-Industry (Specialization) */}
             {selectedIndustry && watchIndustry && (
-              <div className="space-y-2">
-                <Label htmlFor="sub-industry">* Specialization</Label>
+              <div className="space-y-2 [@media(width<=560px)]:[.workspace-page_form_>_&]:p-[1.0625rem]">
+                <Label
+                  className="data-[slot=label]:text-[14px] data-[slot=label]:text-[#b7cdd6]"
+                  htmlFor="sub-industry"
+                >
+                  * Specialization
+                </Label>
                 <Controller
                   control={control}
                   name="subIndustry"
@@ -258,9 +303,15 @@ export const OnboardingForm = ({ industries }: OnboardingFormProps) => {
             )}
 
             {/* YOE */}
-            <div className="space-y-2">
-              <Label htmlFor="experience">Years of Experience</Label>
+            <div className="space-y-2 [@media(width<=560px)]:[.workspace-page_form_>_&]:p-[1.0625rem]">
+              <Label
+                className="data-[slot=label]:text-[14px] data-[slot=label]:text-[#b7cdd6]"
+                htmlFor="experience"
+              >
+                Years of Experience
+              </Label>
               <Input
+                className="[@media(width<=560px)]:text-[16px] data-[slot=input]:text-[16px] data-[slot=input]:bg-[#0a171d] data-[slot=input]:bg-none data-[slot=input]:min-h-[44px] data-[slot=input]:transition-[border-color,_box-shadow] data-[slot=input]:[transition-duration:0.2s,_0.2s] data-[slot=input]:[transition-timing-function:ease,_ease] data-[slot=input]:[transition-delay:0s,_0s] data-[slot=input]:border-[#3c5967] data-[slot=input]:rounded-[6px]"
                 id="experience"
                 type="number"
                 min={0}
@@ -278,9 +329,15 @@ export const OnboardingForm = ({ industries }: OnboardingFormProps) => {
             </div>
 
             {/* Skills */}
-            <div className="space-y-2">
-              <Label htmlFor="skills">Skills</Label>
+            <div className="space-y-2 [@media(width<=560px)]:[.workspace-page_form_>_&]:p-[1.0625rem]">
+              <Label
+                className="data-[slot=label]:text-[14px] data-[slot=label]:text-[#b7cdd6]"
+                htmlFor="skills"
+              >
+                Skills
+              </Label>
               <Input
+                className="[@media(width<=560px)]:text-[16px] data-[slot=input]:text-[16px] data-[slot=input]:bg-[#0a171d] data-[slot=input]:bg-none data-[slot=input]:min-h-[44px] data-[slot=input]:transition-[border-color,_box-shadow] data-[slot=input]:[transition-duration:0.2s,_0.2s] data-[slot=input]:[transition-timing-function:ease,_ease] data-[slot=input]:[transition-delay:0s,_0s] data-[slot=input]:border-[#3c5967] data-[slot=input]:rounded-[6px]"
                 id="skills"
                 type="text"
                 placeholder="e.g. React, Node.js, Python"
@@ -299,8 +356,13 @@ export const OnboardingForm = ({ industries }: OnboardingFormProps) => {
             </div>
 
             {/* Bio */}
-            <div className="space-y-2">
-              <Label htmlFor="bio">Bio</Label>
+            <div className="space-y-2 [@media(width<=560px)]:[.workspace-page_form_>_&]:p-[1.0625rem]">
+              <Label
+                className="data-[slot=label]:text-[14px] data-[slot=label]:text-[#b7cdd6]"
+                htmlFor="bio"
+              >
+                Bio
+              </Label>
               <Controller
                 control={control}
                 name="bio"
@@ -309,7 +371,7 @@ export const OnboardingForm = ({ industries }: OnboardingFormProps) => {
                     {...field}
                     id="bio"
                     placeholder="Tell us about your professional background and interests."
-                    className="resize-none"
+                    className="resize-none [@media(width<=560px)]:text-[16px] data-[slot=textarea]:text-[16px] data-[slot=textarea]:bg-[#0a171d] data-[slot=textarea]:bg-none data-[slot=textarea]:min-h-[44px] data-[slot=textarea]:transition-[border-color,_box-shadow] data-[slot=textarea]:[transition-duration:0.2s,_0.2s] data-[slot=textarea]:[transition-timing-function:ease,_ease] data-[slot=textarea]:[transition-delay:0s,_0s] data-[slot=textarea]:border-[#3c5967] data-[slot=textarea]:rounded-[6px]"
                   />
                 )}
               />

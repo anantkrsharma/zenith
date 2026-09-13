@@ -79,16 +79,16 @@ const NewCover = () => {
       </div>
 
       <motion.div
-        className="letter-composer"
+        className="letter-composer grid [@media(width<=1150px)]:grid-cols-1 grid-cols-[1.15fr_0.85fr] [align-items:start] gap-7.5"
         initial={{ opacity: 0, y: 32 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.33, ease: [0.4, 0, 0.2, 1] }}
       >
-        <Card className="bg-card letter-input-panel">
+        <Card className="bg-card letter-input-panel pt-6.5">
           <CardContent>
             <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2 flex flex-col">
+                <div className="space-y-2 flex flex-col [@media(width<=560px)]:[.workspace-page_form_>_&]:p-[1.0625rem]">
                   <Label htmlFor="job-title">* Job Title</Label>
                   <Input
                     {...register("jobTitle")}
@@ -103,7 +103,7 @@ const NewCover = () => {
                   )}
                 </div>
 
-                <div className="space-y-2 flex flex-col">
+                <div className="space-y-2 flex flex-col [@media(width<=560px)]:[.workspace-page_form_>_&]:p-[1.0625rem]">
                   <Label htmlFor="company-name">* Company Name</Label>
                   <Input
                     {...register("companyName")}
@@ -119,7 +119,7 @@ const NewCover = () => {
                 </div>
               </div>
 
-              <div className="space-y-2">
+              <div className="space-y-2 [@media(width<=560px)]:[.workspace-page_form_>_&]:p-[1.0625rem]">
                 <Label htmlFor="job-desc">Job Description</Label>
                 <Controller
                   control={control}
@@ -159,44 +159,60 @@ const NewCover = () => {
             </form>
           </CardContent>
         </Card>
-        <aside className="letter-context-panel">
-          <p className="eyebrow">A THOUGHTFUL CONNECTION</p>
-          <h2>
+        <aside className="letter-context-panel [border-top-style:solid] [border-right-style:solid] [border-bottom-style:solid] [border-left-style:solid] bg-transparent [background-image:radial-gradient(ellipse_at_90%_5%,_#21414f,_#11242d_85%)] [@media(width<=480px)]:block [@media(480px<width<=1150px)]:grid [@media(width<=1150px)]:grid-cols-[1fr_1fr] [@media(width<=1150px)]:gap-y-0 [@media(width<=1150px)]:gap-x-6 [@media(width<=480px)]:p-6 p-7 border border-[#3e6170] rounded-[9px]">
+          <p className="eyebrow flex items-center text-primary text-[0.6875rem] leading-[1.6] tracking-[0.12em] font-medium [@media(width<=1150px)]:[grid-column:span_2] [.landing-stories_&]:mb-[1.5625rem] [.story-documents_&]:text-[#8eafb8] [.workspace-sidebar_>_&]:text-[#91a5ad] [.workspace-sidebar_>_&]:pl-3 [@media(width<=850px)]:[.workspace-sidebar_>_&]:hidden [@media(width<=1150px)]:last:[grid-column:span_2] gap-2.5">
+            A THOUGHTFUL CONNECTION
+          </p>
+          <h2 className="text-[1.9375rem] tracking-[-0.04em] leading-[1.2] mt-5 mb-7.5 [@media(width<=1150px)]:[grid-column:span_2] mx-0">
             Your story.
             <br />
             Their next chapter.
           </h2>
-          <div className="letter-context-step">
-            <span>01</span>
+          <div className="letter-context-step flex border-t [border-top-style:solid] py-5.5 border-[#426370] gap-[1.0625rem]">
+            <span className="text-[0.6875rem] text-[#b4c2c8] mt-[3px]">01</span>
             <div>
-              <small>THE STARTING POINT</small>
-              <strong>Your professional experience</strong>
-              <p>From the profile you shared with Zenith.</p>
+              <small className="block text-[0.6875rem] tracking-[0.09em] text-[#b4c2c8] mb-[0.5625rem]">
+                THE STARTING POINT
+              </small>
+              <strong className="block text-[1rem] font-normal wrap-anywhere">
+                Your professional experience
+              </strong>
+              <p className="text-[1rem] text-[#b4c2c8] leading-[1.8] mt-2">
+                From the profile you shared with Zenith.
+              </p>
             </div>
           </div>
-          <div className="letter-context-step">
-            <span>02</span>
+          <div className="letter-context-step flex border-t [border-top-style:solid] py-5.5 border-[#426370] gap-[1.0625rem]">
+            <span className="text-[0.6875rem] text-[#b4c2c8] mt-[3px]">02</span>
             <div>
-              <small>THE OPPORTUNITY</small>
-              <strong>{letterContext.jobTitle || "Your target role"}</strong>
-              <p>
+              <small className="block text-[0.6875rem] tracking-[0.09em] text-[#b4c2c8] mb-[0.5625rem]">
+                THE OPPORTUNITY
+              </small>
+              <strong className="block text-[1rem] font-normal wrap-anywhere">
+                {letterContext.jobTitle || "Your target role"}
+              </strong>
+              <p className="text-[1rem] text-[#b4c2c8] leading-[1.8] mt-2">
                 {letterContext.companyName || "The company you want to join"}
               </p>
             </div>
           </div>
-          <div className="letter-context-step">
-            <span>03</span>
+          <div className="letter-context-step flex border-t [border-top-style:solid] py-5.5 border-[#426370] gap-[1.0625rem]">
+            <span className="text-[0.6875rem] text-[#b4c2c8] mt-[3px]">03</span>
             <div>
-              <small>THE CONNECTION</small>
-              <strong>A tailored introduction</strong>
-              <p>
+              <small className="block text-[0.6875rem] tracking-[0.09em] text-[#b4c2c8] mb-[0.5625rem]">
+                THE CONNECTION
+              </small>
+              <strong className="block text-[1rem] font-normal wrap-anywhere">
+                A tailored introduction
+              </strong>
+              <p className="text-[1rem] text-[#b4c2c8] leading-[1.8] mt-2">
                 {letterContext.jobDescription
                   ? "Your job context helps connect the right experience to this role."
                   : "Add the job description to give your letter a clear focus."}
               </p>
             </div>
           </div>
-          <p className="text-xs text-muted-foreground leading-6 mt-8">
+          <p className="text-xs text-muted-foreground leading-6 mt-8 [@media(width<=1150px)]:last:[grid-column:span_2]">
             Your letter is saved after generation. Review it, then download a
             PDF when you’re ready.
           </p>

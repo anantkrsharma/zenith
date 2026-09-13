@@ -218,9 +218,8 @@ const ResumeBuilder = ({ initialContent }: { initialContent: string }) => {
   };
 
   return (
-    <div className="space-y-4 resume-studio">
+    <div className="space-y-4 resume-studio [&_.w-md-editor-preview]:bg-[#f5f7f8] [&_.w-md-editor-preview]:bg-none [&_.w-md-editor-preview_.wmde-markdown]:[--color-canvas-default:#f5f7f8] [&_.w-md-editor-preview_.wmde-markdown]:[--color-fg-default:#131e22] [&_.w-md-editor-preview_.wmde-markdown]:[--color-border-default:#b4c2c8] [&_.w-md-editor-preview_.wmde-markdown]:[--color-accent-fg:#35474f] [&_.w-md-editor-preview_.wmde-markdown]:bg-[#f5f7f8] [&_.w-md-editor-preview_.wmde-markdown]:bg-none [&_.w-md-editor-preview_.wmde-markdown]:text-[#131e22] [@media(width<=560px)]:[&_.w-md-editor-preview]:p-5.5 [&_.w-md-editor-preview]:p-8.5">
       <PageHeading
-        eyebrow="YOUR EXPERIENCE, ELEVATED"
         title="Your experience. In its best light."
         description="Build, refine, and export a resume that does your experience justice."
       >
@@ -266,7 +265,7 @@ const ResumeBuilder = ({ initialContent }: { initialContent: string }) => {
       </PageHeading>
 
       <Tabs
-        className="space-y-2"
+        className="space-y-2 [@media(width<=560px)]:[.workspace-page_form_>_&]:p-[1.0625rem]"
         value={activeTab}
         onValueChange={(val) => setActiveTab(val)}
       >
@@ -276,7 +275,10 @@ const ResumeBuilder = ({ initialContent }: { initialContent: string }) => {
         </TabsList>
 
         <TabsContent value="form" className="p-1">
-          <div className="resume-section-nav" aria-label="Resume sections">
+          <div
+            className="resume-section-nav flex flex-wrap pb-4.5 border-b [border-bottom-style:solid] border-b-[var(--border)] my-5 [@media(width<=480px)]:gap-1.5 gap-[0.4375rem]"
+            aria-label="Resume sections"
+          >
             {[
               ["contact", "Contact"],
               ["summary", "Summary"],
@@ -285,26 +287,33 @@ const ResumeBuilder = ({ initialContent }: { initialContent: string }) => {
               ["projects", "Projects"],
               ["education", "Education"],
             ].map(([id, label]) => (
-              <a key={id} href={`#resume-${id}`}>
+              <a
+                className="[@media(width<=480px)]:text-[0.6875rem] text-[0.75rem] text-[#b4c2c8] [border-top-style:solid] [border-right-style:solid] [border-bottom-style:solid] [border-left-style:solid] hover:text-primary hover:bg-[#70b7c20a] hover:bg-none [@media(width<=480px)]:py-[0.4375rem] py-2 [@media(width<=480px)]:px-2 px-[0.6875rem] border border-[#35474f] rounded-[0.25rem]"
+                key={id}
+                href={`#resume-${id}`}
+              >
                 {label}
               </a>
             ))}
           </div>
-          <div className="resume-composer">
+          <div className="resume-composer grid [@media(width<=1000px)]:grid-cols-1 [@media(1000px<width<=1150px)]:grid-cols-[1fr_0.8fr] grid-cols-[1fr_0.86fr] [align-items:start] min-w-0 [@media(width<=1150px)]:gap-4.5 gap-[1.6875rem]">
             <motion.form
               onSubmit={handleSubmit(onSubmit)}
-              className="space-y-6"
+              className="space-y-6 min-w-0"
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 24 }}
               transition={{ duration: 0.25, ease: "easeInOut" }}
             >
               {/* Contact Info */}
-              <div id="resume-contact" className="space-y-2">
+              <div
+                id="resume-contact"
+                className="space-y-2 [border-top-style:solid] [border-right-style:solid] [border-bottom-style:solid] [border-left-style:solid] bg-transparent [background-image:linear-gradient(135deg,_#172a34,_#10212a)] [@media(480px<width<=1000px)]:[.resume-composer_#resume-contact_>_&]:grid-cols-[1fr_1fr] [.resume-composer_#resume-contact_>_&]:grid-cols-1 [@media(width<=560px)]:p-[19px] p-[24px] border border-[#3e5c6b] rounded-[8px] [.resume-composer_#resume-contact_>_&]:gap-4.5"
+              >
                 <h3 className="text-lg font-medium">Contact Information</h3>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-4 rounded-lg bg-card">
-                  <div className="space-y-2">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-4 rounded-lg bg-card [@media(480px<width<=1000px)]:[.resume-composer_#resume-contact_>_&]:grid-cols-[1fr_1fr] [.resume-composer_#resume-contact_>_&]:grid-cols-1 [.resume-composer_#resume-contact_>_&]:bg-transparent [.resume-composer_#resume-contact_>_&]:bg-none [.resume-composer_#resume-contact_>_&]:p-0 [.resume-composer_#resume-contact_>_&]:gap-4.5">
+                  <div className="space-y-2 [@media(480px<width<=1000px)]:[.resume-composer_#resume-contact_>_&]:grid-cols-[1fr_1fr] [.resume-composer_#resume-contact_>_&]:grid-cols-1 [.resume-composer_#resume-contact_>_&]:bg-transparent [.resume-composer_#resume-contact_>_&]:bg-none [@media(width<=560px)]:[.workspace-page_form_>_&]:p-[1.0625rem] [.resume-composer_#resume-contact_>_&]:p-0 [.resume-composer_#resume-contact_>_&]:gap-4.5">
                     <Label htmlFor="email" className="text-sm">
                       {" "}
                       * Email{" "}
@@ -323,7 +332,7 @@ const ResumeBuilder = ({ initialContent }: { initialContent: string }) => {
                     )}
                   </div>
 
-                  <div className="space-y-2">
+                  <div className="space-y-2 [@media(480px<width<=1000px)]:[.resume-composer_#resume-contact_>_&]:grid-cols-[1fr_1fr] [.resume-composer_#resume-contact_>_&]:grid-cols-1 [.resume-composer_#resume-contact_>_&]:bg-transparent [.resume-composer_#resume-contact_>_&]:bg-none [@media(width<=560px)]:[.workspace-page_form_>_&]:p-[1.0625rem] [.resume-composer_#resume-contact_>_&]:p-0 [.resume-composer_#resume-contact_>_&]:gap-4.5">
                     <Label htmlFor="mobile" className="text-sm">
                       {" "}
                       Mobile Number{" "}
@@ -342,7 +351,7 @@ const ResumeBuilder = ({ initialContent }: { initialContent: string }) => {
                     )}
                   </div>
 
-                  <div className="space-y-2">
+                  <div className="space-y-2 [@media(480px<width<=1000px)]:[.resume-composer_#resume-contact_>_&]:grid-cols-[1fr_1fr] [.resume-composer_#resume-contact_>_&]:grid-cols-1 [.resume-composer_#resume-contact_>_&]:bg-transparent [.resume-composer_#resume-contact_>_&]:bg-none [@media(width<=560px)]:[.workspace-page_form_>_&]:p-[1.0625rem] [.resume-composer_#resume-contact_>_&]:p-0 [.resume-composer_#resume-contact_>_&]:gap-4.5">
                     <Label htmlFor="linkedin" className="text-sm">
                       {" "}
                       LinkedIn{" "}
@@ -361,7 +370,7 @@ const ResumeBuilder = ({ initialContent }: { initialContent: string }) => {
                     )}
                   </div>
 
-                  <div className="space-y-2">
+                  <div className="space-y-2 [@media(480px<width<=1000px)]:[.resume-composer_#resume-contact_>_&]:grid-cols-[1fr_1fr] [.resume-composer_#resume-contact_>_&]:grid-cols-1 [.resume-composer_#resume-contact_>_&]:bg-transparent [.resume-composer_#resume-contact_>_&]:bg-none [@media(width<=560px)]:[.workspace-page_form_>_&]:p-[1.0625rem] [.resume-composer_#resume-contact_>_&]:p-0 [.resume-composer_#resume-contact_>_&]:gap-4.5">
                     <Label htmlFor="twitter" className="text-sm">
                       {" "}
                       Twitter (X){" "}
@@ -383,7 +392,10 @@ const ResumeBuilder = ({ initialContent }: { initialContent: string }) => {
               </div>
 
               {/* Professional Summary */}
-              <div id="resume-summary" className="space-y-2">
+              <div
+                id="resume-summary"
+                className="space-y-2 [border-top-style:solid] [border-right-style:solid] [border-bottom-style:solid] [border-left-style:solid] bg-transparent [background-image:linear-gradient(135deg,_#172a34,_#10212a)] [@media(480px<width<=1000px)]:[.resume-composer_#resume-contact_>_&]:grid-cols-[1fr_1fr] [.resume-composer_#resume-contact_>_&]:grid-cols-1 [@media(width<=560px)]:p-[19px] p-[24px] border border-[#3e5c6b] rounded-[8px] [.resume-composer_#resume-contact_>_&]:gap-4.5"
+              >
                 <Label htmlFor="summary" className="text-lg font-medium">
                   {" "}
                   Professional Summary{" "}
@@ -427,7 +439,10 @@ const ResumeBuilder = ({ initialContent }: { initialContent: string }) => {
               </div>
 
               {/* Skills */}
-              <div id="resume-skills" className="space-y-2">
+              <div
+                id="resume-skills"
+                className="space-y-2 [border-top-style:solid] [border-right-style:solid] [border-bottom-style:solid] [border-left-style:solid] bg-transparent [background-image:linear-gradient(135deg,_#172a34,_#10212a)] [@media(480px<width<=1000px)]:[.resume-composer_#resume-contact_>_&]:grid-cols-[1fr_1fr] [.resume-composer_#resume-contact_>_&]:grid-cols-1 [@media(width<=560px)]:p-[19px] p-[24px] border border-[#3e5c6b] rounded-[8px] [.resume-composer_#resume-contact_>_&]:gap-4.5"
+              >
                 <Label htmlFor="skills" className="text-lg font-medium">
                   {" "}
                   * Skills{" "}
@@ -455,7 +470,10 @@ const ResumeBuilder = ({ initialContent }: { initialContent: string }) => {
               </div>
 
               {/* Work Experience */}
-              <div id="resume-experience" className="space-y-2">
+              <div
+                id="resume-experience"
+                className="space-y-2 [border-top-style:solid] [border-right-style:solid] [border-bottom-style:solid] [border-left-style:solid] bg-transparent [background-image:linear-gradient(135deg,_#172a34,_#10212a)] [@media(480px<width<=1000px)]:[.resume-composer_#resume-contact_>_&]:grid-cols-[1fr_1fr] [.resume-composer_#resume-contact_>_&]:grid-cols-1 [@media(width<=560px)]:p-[19px] p-[24px] border border-[#3e5c6b] rounded-[8px] [.resume-composer_#resume-contact_>_&]:gap-4.5"
+              >
                 <h3 className="text-lg font-medium"> Work Experience </h3>
                 <Controller
                   name="workExp"
@@ -480,7 +498,10 @@ const ResumeBuilder = ({ initialContent }: { initialContent: string }) => {
               </div>
 
               {/* Projects */}
-              <div id="resume-projects" className="space-y-2">
+              <div
+                id="resume-projects"
+                className="space-y-2 [border-top-style:solid] [border-right-style:solid] [border-bottom-style:solid] [border-left-style:solid] bg-transparent [background-image:linear-gradient(135deg,_#172a34,_#10212a)] [@media(480px<width<=1000px)]:[.resume-composer_#resume-contact_>_&]:grid-cols-[1fr_1fr] [.resume-composer_#resume-contact_>_&]:grid-cols-1 [@media(width<=560px)]:p-[19px] p-[24px] border border-[#3e5c6b] rounded-[8px] [.resume-composer_#resume-contact_>_&]:gap-4.5"
+              >
                 <h3 className="text-lg font-medium"> Projects </h3>
                 <Controller
                   name="projects"
@@ -505,7 +526,10 @@ const ResumeBuilder = ({ initialContent }: { initialContent: string }) => {
               </div>
 
               {/* Education */}
-              <div id="resume-education" className="space-y-2">
+              <div
+                id="resume-education"
+                className="space-y-2 [border-top-style:solid] [border-right-style:solid] [border-bottom-style:solid] [border-left-style:solid] bg-transparent [background-image:linear-gradient(135deg,_#172a34,_#10212a)] [@media(480px<width<=1000px)]:[.resume-composer_#resume-contact_>_&]:grid-cols-[1fr_1fr] [.resume-composer_#resume-contact_>_&]:grid-cols-1 [@media(width<=560px)]:p-[19px] p-[24px] border border-[#3e5c6b] rounded-[8px] [.resume-composer_#resume-contact_>_&]:gap-4.5"
+              >
                 <h3 className="text-lg font-medium"> Education </h3>
                 <Controller
                   name="education"
@@ -529,34 +553,39 @@ const ResumeBuilder = ({ initialContent }: { initialContent: string }) => {
                 )}
               </div>
             </motion.form>
-            <aside className="resume-live-preview">
-              <div className="visual-heading">
-                <span>YOUR DOCUMENT</span>
-                <span>LIVE PREVIEW</span>
+            <aside className="resume-live-preview [@media(width<=1000px)]:static sticky top-[6.5625rem] grid bg-transparent [background-image:radial-gradient(ellipse_at_50%_0,_#203d4a,_#0e2029)] [border-top-style:solid] [border-right-style:solid] [border-bottom-style:solid] [border-left-style:solid] min-w-0 [box-shadow:0_20px_45px_#0003] [&_.wmde-markdown]:[--color-canvas-default:#f5f7f8] [&_.wmde-markdown]:[--color-fg-default:#131e22] [&_.wmde-markdown]:[--color-border-default:#b4c2c8] [&_.wmde-markdown]:[--color-accent-fg:#35474f] [&_.wmde-markdown]:bg-[#f5f7f8] [&_.wmde-markdown]:bg-none [&_.wmde-markdown]:text-[#131e22] [&_.wmde-markdown]:text-[0.75rem] [&_.wmde-markdown]:leading-[1.8] [&_.wmde-markdown_h1]:text-[1.5rem] [&_.wmde-markdown_h2]:text-[1.0625rem] [&_.wmde-markdown_h3]:text-[0.875rem] [@media(width<=480px)]:p-3.5 [@media(480px<width<=1150px)]:p-[0.9375rem] p-5.5 border border-[#446573] rounded-[8px] gap-4.5">
+              <div className="visual-heading flex items-center justify-between text-[0.6875rem] text-[#b4c2c8] tracking-[0.1em] [@media(480px<width<=1000px)]:[.resume-composer_#resume-contact_>_&]:grid-cols-[1fr_1fr] [.resume-composer_#resume-contact_>_&]:grid-cols-1 [.resume-composer_#resume-contact_>_&]:bg-transparent [.resume-composer_#resume-contact_>_&]:bg-none [.resume-composer_#resume-contact_>_&]:p-0 [@media(width<=560px)]:[.signal-field_&]:px-1.5 gap-2.5 [.resume-composer_#resume-contact_>_&]:gap-4.5">
+                <span className="flex items-center gap-2">YOUR DOCUMENT</span>
+                <span className="flex items-center gap-2">LIVE PREVIEW</span>
               </div>
-              <div className="resume-live-paper" data-color-mode="light">
+              <div
+                className="resume-live-paper [@media(480px<width<=1000px)]:[.resume-composer_#resume-contact_>_&]:grid-cols-[1fr_1fr] [.resume-composer_#resume-contact_>_&]:grid-cols-1 [.resume-composer_#resume-contact_>_&]:bg-transparent [.resume-composer_#resume-contact_>_&]:bg-none bg-[#f5f7f8] bg-none text-[#131e22] [@media(width<=1000px)]:min-h-87.5 min-h-130 [border-top-style:solid] [border-right-style:solid] [border-bottom-style:solid] [border-left-style:solid] [box-shadow:0_20px_45px_#0005] wrap-anywhere [@media(width<=1000px)]:max-h-[none] max-h-[70vh] overflow-y-auto [.resume-composer_#resume-contact_>_&]:p-0 [@media(width<=1150px)]:p-5 p-7 border border-[#b4c2c8] [.resume-composer_#resume-contact_>_&]:gap-4.5"
+                data-color-mode="light"
+              >
                 {previewContent.trim() ? (
                   <MDEditor.Markdown
                     source={previewContent}
                     rehypePlugins={[[rehypeRaw], [rehypeSanitize]]}
                   />
                 ) : (
-                  <div className="resume-paper-empty">
-                    <span>YOUR NAME</span>
-                    <h2>
+                  <div className="resume-paper-empty [@media(480px<width<=1000px)]:[.resume-composer_#resume-contact_>_&]:grid-cols-[1fr_1fr] [.resume-composer_#resume-contact_>_&]:grid-cols-1 [.resume-composer_#resume-contact_>_&]:bg-transparent [.resume-composer_#resume-contact_>_&]:bg-none pt-4.5 [.resume-composer_#resume-contact_>_&]:p-0 [.resume-composer_#resume-contact_>_&]:gap-4.5">
+                    <span className="text-[#6b838d] text-[0.6875rem] tracking-[0.1em]">
+                      YOUR NAME
+                    </span>
+                    <h2 className="text-[2.125rem] leading-[1.12] tracking-[-0.05em] my-[1.5625rem]">
                       Your story
                       <br />
                       starts here.
                     </h2>
-                    <p>
+                    <p className="text-[0.75rem] leading-[1.9] text-[#6b838d]">
                       Add your contact details, skills, and experience. Your
                       resume takes shape as you write.
                     </p>
-                    <div className="paper-lines">
-                      <i />
-                      <i />
-                      <i />
-                      <i />
+                    <div className="paper-lines grid mt-[2.8125rem] mb-5.5 [@media(480px<width<=1000px)]:[.resume-composer_#resume-contact_>_&]:grid-cols-[1fr_1fr] [.resume-composer_#resume-contact_>_&]:grid-cols-1 [.resume-composer_#resume-contact_>_&]:bg-transparent [.resume-composer_#resume-contact_>_&]:bg-none [.resume-composer_#resume-contact_>_&]:p-0 gap-2 [.resume-composer_#resume-contact_>_&]:gap-4.5">
+                      <i className="h-[3px] bg-[#e4ebee] bg-none last:w-[60%]" />
+                      <i className="h-[3px] bg-[#e4ebee] bg-none last:w-[60%]" />
+                      <i className="h-[3px] bg-[#e4ebee] bg-none last:w-[60%]" />
+                      <i className="h-[3px] bg-[#e4ebee] bg-none last:w-[60%]" />
                     </div>
                   </div>
                 )}

@@ -13,7 +13,6 @@ const IndustryInsightsPage = async () => {
   return (
     <div className="container mx-auto">
       <PageHeading
-        eyebrow="YOUR CAREER, WITH DIRECTION"
         title="A clearer view. A next step."
         description="Understand the landscape around your career, then decide where to put your energy."
       />

@@ -18,7 +18,6 @@ const InterviewPage = async () => {
   return (
     <div className="space-y-4">
       <PageHeading
-        eyebrow="PREPARATION BUILDS CONFIDENCE"
         title="Be ready for your moment."
         description="Practice with purpose. Learn from every answer and track your progress along the way."
       >

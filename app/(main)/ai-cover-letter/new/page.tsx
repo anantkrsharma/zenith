@@ -72,7 +72,6 @@ const NewCover = () => {
         </Link>
         <PageHeading
           className="mt-6"
-          eyebrow="MAKE THE INTRODUCTION COUNT"
           title="A letter with your name on it."
           description="Tell us about the opportunity. We’ll help you connect your experience to the role."
         />

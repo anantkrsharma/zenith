@@ -19,7 +19,6 @@ const MockInterviewPage = async () => {
           </Link>
         </Button>
         <PageHeading
-          eyebrow="YOUR PRACTICE STUDIO"
           title="Confidence starts here."
           description="Take your time. Think it through. Learn something with every answer."
         />

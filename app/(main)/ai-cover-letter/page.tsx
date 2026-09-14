@@ -17,7 +17,6 @@ const CoverLettersPage = async () => {
   return (
     <div className="space-y-4 md:space-y-6">
       <PageHeading
-        eyebrow="A STRONGER FIRST IMPRESSION"
         title="Open the right doors."
         description="Thoughtful introductions, tailored to your next opportunity."
       >
